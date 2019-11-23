@@ -52,7 +52,7 @@ class App extends Component {
   render() {
     let total = 0;
     for (let i = 0; i < this.state.snacks.length; i++) {
-      total = total + (SnacksList[i].price * this.state.snacks[i].count);
+      total = total + (SnacksList[i].price * this.state.snacks[i].count) * 1.05;
     }
     return (
         <div className='App'>

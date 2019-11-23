@@ -1,0 +1,19 @@
+.SnackListItem {
+    border: 2px solid #282c34;
+    border-radius: 4px;
+    display: flex;
+    margin: 5px;
+    padding: 5px;
+    position: relative;
+}
+.SnackListItem h3 {
+    margin: 0;
+}
+.btn {
+    border: 2px solid #282c34;
+    border-radius: 4px;
+    background: transparent;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
