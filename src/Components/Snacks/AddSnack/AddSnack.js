@@ -6,6 +6,7 @@ const AddSnack = props =>{
             <h3>{props.item}</h3>
             <p>{props.count}</p>
             <button onClick={props.remove}>delete</button>
+            <span>{props.price}</span>
         </div>
     )
 };

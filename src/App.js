@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Snacks from "./Components/Snacks/Snacks";
+import SnacksMenu from "./Components/SnacksMenu/SnacksMenu";
 
 import hamburger from './Images/hamburger.png'
 import cheeseburger from './Images/cheeseburger.png'
@@ -21,12 +22,12 @@ export const SnacksList = [
 class App extends Component {
   state = {
     snacks: [
-      {name: 'Hamburger', count: 1},
-      {name: 'Cheeseburger', count: 1},
-      {name: 'Fries', count: 1},
-      {name: 'Coffee', count: 1},
-      {name: 'Tea', count: 1},
-      {name: 'Cola', count: 1}
+      {name: 'Hamburger', count: 0},
+      {name: 'Cheeseburger', count: 0},
+      {name: 'Fries', count: 0},
+      {name: 'Coffee', count: 0},
+      {name: 'Tea', count: 0},
+      {name: 'Cola', count: 0}
     ]
   };
 
@@ -38,12 +39,31 @@ class App extends Component {
     this.setState({snacks});
   };
 
+  addClick = index => {
+    let snacks = [...this.state.snacks];
+    let snack = {...snacks[index]};
+    snack.count ++;
+    snacks[index] = snack;
+    this.setState({snacks});
+  };
+
+
+
   render() {
+    let total = 0;
+    for (let i = 0; i < this.state.snacks.length; i++) {
+      total = total + (SnacksList[i].price * this.state.snacks[i].count);
+    }
     return (
         <div className='App'>
           <Snacks
               snacks={this.state.snacks}
               remove={this.decrease}
+              total={total}
+          />
+          <SnacksMenu
+              snacks={this.state.snacks}
+              addClick={this.addClick}
           />
         </div>
     )
