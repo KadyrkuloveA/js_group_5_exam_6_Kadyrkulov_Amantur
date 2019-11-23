@@ -1,17 +1,15 @@
 import React from 'react';
 import AddSnack from "./AddSnack/AddSnack";
-import {SnacksList} from "../../App";
 
 const Snacks = props => {
     return (
         <div>
-            {SnacksList.map((snack, index) => (
+            {props.snacks.map((snack, index) => (
                 <AddSnack
                     key={index}
-                    item={this.state.name}
-                    image={snack.image}
-                    // remove={() => props.remove(index)}
-                    count={this.state.count}
+                    item={snack.name}
+                    remove={() => props.remove(index)}
+                    count={snack.count}
                 />
             ))}
         </div>

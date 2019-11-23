@@ -21,12 +21,12 @@ export const SnacksList = [
 class App extends Component {
   state = {
     snacks: [
-      {name: 'Hamburger', count: 0},
-      {name: 'Cheeseburger', count: 0},
-      {name: 'Fries', count: 0},
-      {name: 'Coffee', count: 0},
-      {name: 'Tea', count: 0},
-      {name: 'Cola', count: 0}
+      {name: 'Hamburger', count: 1},
+      {name: 'Cheeseburger', count: 1},
+      {name: 'Fries', count: 1},
+      {name: 'Coffee', count: 1},
+      {name: 'Tea', count: 1},
+      {name: 'Cola', count: 1}
     ]
   };
 
@@ -41,7 +41,10 @@ class App extends Component {
   render() {
     return (
         <div className='App'>
-          <Snacks/>
+          <Snacks
+              snacks={this.state.snacks}
+              remove={this.decrease}
+          />
         </div>
     )
   }
